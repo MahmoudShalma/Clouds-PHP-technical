@@ -1,0 +1,21 @@
+$ ssh-keygen
+$ cat id_rsa.pub
+$ ssh -p 65002 u590774645@185.166.188.103
+Password@312
+
+
+MahmoudShalma
+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
+
+
+
+
+
+
+
+
+
+
+eec
+ssh -p 65002 u927865051@217.21.77.51
+zs!h2H48{Y!NeZYu
