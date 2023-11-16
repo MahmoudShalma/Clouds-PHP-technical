@@ -29,31 +29,17 @@
             </div>
             <div class="card-body mb-n3">
                 <div class="row">
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-4 form-group">
 
                         <input type="text" name="name" id="name" placeholder="{{trans('dashboard.name')}}" style="width: 100%">
 
                     </div>
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-4 form-group">
 
                         <input type="email" name="email" id="email" placeholder="{{trans('dashboard.email')}}" style="width: 100%">
 
                     </div>
-                    <div class="col-md-3 form-group">
-
-                        <select name="type" id="type" class="form-control select2" style="width: 100%">
-
-                            <option value="">{{trans('dashboard.type')}}
-                            </option>
-                            <option value="admin">{{trans('dashboard.admin')}}
-                            </option>
-                            <option value="customer">{{trans('dashboard.customer')}}
-                            </option>
-
-                        </select>
-
-                    </div>
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-4 form-group">
 
                         <select name="status" id="status" class="form-control select2" style="width: 100%">
 

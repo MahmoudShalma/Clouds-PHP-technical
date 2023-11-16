@@ -27,6 +27,7 @@ Route::group(
             Route::post("/logout", [AuthController::class, "logout"])->name("logout");
             Route::get("/", [HomeController::class, "welcome"])->name("welcome");
 
+            Route::get("/invoice/{id}", [HomeController::class, "generateInvoice"])->name("invoice");
 
             // users
             Route::resource('users', UserController::class);

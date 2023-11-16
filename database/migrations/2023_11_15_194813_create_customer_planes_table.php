@@ -18,6 +18,7 @@ class CreateCustomerPlanesTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('plane_id')->constrained('planes')->onDelete('cascade');
             $table->enum('is_pay', [0, 1])->default(0);
+            $table->date('date_pay')->nullable();
             $table->timestamps();
         });
     }
