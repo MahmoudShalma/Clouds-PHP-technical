@@ -12,6 +12,8 @@
     Set the margins of the page to 0, so the footer and the header
     can be of the full height and width !
  **/
+
+
         @page {
             margin: 20px 20px 0 20px;
             /*background: url("
