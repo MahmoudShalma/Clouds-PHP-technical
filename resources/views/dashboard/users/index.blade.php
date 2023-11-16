@@ -83,6 +83,7 @@
                             <th>@lang('dashboard.name')</th>
                             <th>@lang('dashboard.email')</th>
                             <th>@lang('dashboard.status')</th>
+                            <th>@lang('dashboard.plane')</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -132,6 +133,9 @@
                 },
                 {
                     "data": "status"
+                },
+                {
+                    "data": "plane"
                 },
 
             ],

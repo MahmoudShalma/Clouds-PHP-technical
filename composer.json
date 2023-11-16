@@ -17,7 +17,6 @@
         "laravel/tinker": "^2.5",
         "mcamara/laravel-localization": "^1.8",
         "spatie/laravel-permission": "^5.10",
-        "webpatser/laravel-uuid": "3.0",
         "yajra/laravel-datatables-oracle": "^9.21"
     },
     "require-dev": {

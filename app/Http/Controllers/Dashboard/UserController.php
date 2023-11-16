@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::where("type","customer")->where(function ($q) use ($request) {
+            $data = User::where("type", "customer")->where(function ($q) use ($request) {
                 if (request()->has('name') && request('name') != null) {
                     $q->where("name", 'like', '%' . request('name') . '%');
                 }
@@ -35,33 +35,13 @@ class UserController extends Controller
             return DataTables::of($data)
 
                 ->addIndexColumn()
+                ->editColumn('plane', function ($data) {
+                    return $data->customerPlane->plane->name;
+                })
                 ->make(true);
         }
 
         return view('dashboard.users.index');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email',
-
-        ]);
-
-        $user = User::create([
-            "name" => $request->name,
-            "email" => $request->email,
-        ]);
-
-        session()->flash('success', trans('dashboard.added_successfully'));
-        return redirect()->route('dashboard.users.index');
     }
 
     /**
@@ -127,7 +107,7 @@ class UserController extends Controller
         session()->flash('warning', trans('dashboard.deleted_successfully'));
         return redirect()->route('dashboard.users.index');
     }
-    
+
     public function change_status($id)
     {
         $user = User::where("id", $id)->first();

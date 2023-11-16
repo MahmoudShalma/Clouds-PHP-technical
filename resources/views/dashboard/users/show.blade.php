@@ -31,17 +31,24 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="form-group ">
                             <label for="note">@lang('dashboard.name')</label>
                             <input type="text" class="form-control" value="{{ $user->name }}" disabled>
                         </div>
                     </div>
                    
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="form-group ">
                             <label for="note">@lang('dashboard.email')</label>
                             <input type="text" class="form-control" value="{{ $user->email }}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group ">
+                            <label for="note">@lang('dashboard.plane')</label>
+                            <input type="text" class="form-control" value="{{ $user->customerPlane->plane->name }}" disabled>
                         </div>
                     </div>
                    

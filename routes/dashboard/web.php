@@ -19,7 +19,7 @@ Route::group(
         // auth routes
         Route::get('dashboard/login', [AuthController::class, 'showLogin'])->middleware('guest')->name('login');
         Route::post('dashboard/login', [AuthController::class, 'doLogin']);
-        Route::get('dashboard/register', [AuthController::class, 'showRegister'])->middleware('guest')->name('Register');
+        Route::get('dashboard/register', [AuthController::class, 'showRegister'])->middleware('guest')->name('register');
         Route::post('dashboard/register', [AuthController::class, 'doRegister']);
         Route::prefix('dashboard')->name("dashboard.")->middleware(["auth"])->group(function () {
 
