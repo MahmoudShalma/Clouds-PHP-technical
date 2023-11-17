@@ -26,7 +26,7 @@ Route::group(
             // Logout Route
             Route::post("/logout", [AuthController::class, "logout"])->name("logout");
             Route::get("/", [HomeController::class, "welcome"])->name("welcome");
-
+            Route::post('subscription', [PlaneController::class, 'subscription'])->name("subscription.create");
             Route::get("/invoice/{id}", [HomeController::class, "generateInvoice"])->name("invoice");
 
             // users

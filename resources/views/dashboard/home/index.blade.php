@@ -16,7 +16,7 @@
 <div class="row">
     <div class="col-12">
     @if(Auth()->user()->type!="admin")
-        <a class="form-control button" href="{{ route('dashboard.invoice',Auth()->id()) }}">invoice</a>
+        <a class="form-control btn btn-default btn-info" href="{{ route('dashboard.invoice',Auth()->id()) }}">@lang('dashboard.invoice')</a>
     @endif    
     </div>
 </div>

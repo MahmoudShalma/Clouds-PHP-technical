@@ -17,10 +17,11 @@ class HomeController extends Controller
     public function generateInvoice($id)
     {
         $user = User::where("id", $id)->first();
-        if($user->customerPlane->is_pay ==0)
-        {
+        if ($user->customerPlane->is_pay == 0) {
             session()->flash('warning', trans('dashboard.pay first'));
-            return redirect()->route('dashboard.welcome');
+            $intent = auth()->user()->createSetupIntent();
+            $plan=$user->customerPlane->plane;
+            return view("dashboard.planes.subscription", compact("plan", "intent"));
         }
         $date = $user->customerPlane->date_pay;
         $dueDate = $user->customerPlane->plane->name != "yearly" ? Carbon::parse($date)->addDays(365)->format('Y-m-d') : Carbon::parse($date)->addDays(30)->format('Y-m-d');

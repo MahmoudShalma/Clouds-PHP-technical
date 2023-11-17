@@ -126,7 +126,7 @@
             <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
                 <thead>
                     <tr>
-                        <th>الوصف</th>
+                        <th>description</th>
                         <th>Total</th>
                     </tr>
                 </thead>

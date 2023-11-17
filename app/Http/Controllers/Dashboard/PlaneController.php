@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CustomerPlane;
 use App\Models\Plane;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class PlaneController extends Controller
@@ -137,5 +138,15 @@ class PlaneController extends Controller
         Plane::where("id", $id)->delete();
         session()->flash('warning', trans('dashboard.deleted_successfully'));
         return redirect()->route('dashboard.planes.index');
+    }
+
+     public function subscription(Request $request)
+    {
+        CustomerPlane::where("user_id",Auth()->id())->where("plane_id",$request->plan)->update([
+            "is_pay" => "1",
+            "date_pay" => now()
+        ]);
+        session()->flash('success', trans('dashboard.pay_successfully'));
+        return redirect()->route('dashboard.welcome');
     }
 }

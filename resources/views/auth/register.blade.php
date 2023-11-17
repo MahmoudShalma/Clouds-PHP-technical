@@ -29,7 +29,7 @@
 
                                 <div class="form-group">
                                     <label for="name">@lang('dashboard.name')</label>
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="برجاء أدخال الاسم ">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="@lang('dashboard.name')">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">@lang('dashboard.email')</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="برجاء أدخال البريد الالكترونى ">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('dashboard.email')">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                                 <div class="form-group">
 
                                     <label for="password">@lang('dashboard.password')</label>
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="برجاء  أدخال  كلمه  المرور  ">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="@lang('dashboard.password')">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -60,8 +60,8 @@
 
                                 <div class="form-group">
 
-                                    <label for="password_confirmation">@lang('dashboard.Confirm password_confirmation')</label>
-                                    <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required placeholder="برجاء اعادة أدخال  كلمه  المرور  ">
+                                    <label for="password_confirmation">@lang('dashboard.password_confirmation')</label>
+                                    <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required placeholder="@lang('dashboard.password_confirmation')">
 
                                     @error('password_confirmation')
                                     <span class="invalid-feedback" role="alert">
