@@ -20,7 +20,7 @@ class HomeController extends Controller
         if ($user->customerPlane->is_pay == 0) {
             session()->flash('warning', trans('dashboard.pay first'));
             $intent = auth()->user()->createSetupIntent();
-            $plan=$user->customerPlane->plane;
+            $plan = $user->customerPlane->plane;
             return view("dashboard.planes.subscription", compact("plan", "intent"));
         }
         $date = $user->customerPlane->date_pay;
@@ -28,13 +28,29 @@ class HomeController extends Controller
         $data = [
             'invoiceDate' => Carbon::parse($user->customerPlane->date_pay)->format('Y-m-d'),
             'dueDate' => $dueDate,
+            'num' => auth()->user()->id,
             'items' => [
                 ['description' => $user->customerPlane->plane->name, 'total' => $user->customerPlane->plane->price . " $"],
             ],
             'totalAmount' => $user->customerPlane->plane->price . " $",
-            'thankYouMessage' => 'Thank you for your business!',
+            'thankYouMessage' => 'شكرا لك على عملك!',
         ];
-        $pdf = PDF::loadView('pdf.invoice', $data);
-        return $pdf->download('invoice.pdf');
+        // $pdf = PDF::loadView('pdf.invoice', $data);
+        // return $pdf->download('invoice.pdf');
+
+        $html = view('pdf.invoice', $data)->toArabicHTML();
+
+        $pdf = PDF::loadHTML($html)->output();
+
+        $headers = array(
+            "Content-type" => "application/pdf",
+        );
+
+        // Create a stream response as a file download
+        return response()->streamDownload(
+            fn () => print($pdf), // add the content to the stream
+            "invoice.pdf", // the name of the file/stream
+            $headers
+        );
     }
 }
