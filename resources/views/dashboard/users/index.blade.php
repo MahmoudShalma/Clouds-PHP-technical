@@ -93,6 +93,7 @@
         var table = $('#example1').DataTable({
             processing: true,
             serverSide: true,
+            searching: false,
 
             ajax: {
                 url: "{{ route('dashboard.users.index') }}",
