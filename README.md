@@ -23,6 +23,18 @@ cd Clouds-PHP-technical && cp .env.example .env
 ```bash
 php artisan migrate --seed
 ```
+
+## Log In
+- 1. Log In As Admin
+```bash
+Email: admin@admin.com
+Password: password
+```
+- 2. Log In As Customer
+```bash
+You can Register As Customer
+```
+
 ## Card Test
 Name: Test
 
