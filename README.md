@@ -23,3 +23,15 @@ cd Clouds-PHP-technical && cp .env.example .env
 ```bash
 php artisan migrate --seed
 ```
+## Card Test
+Name: Test
+
+Number: 4242 4242 4242 4242
+
+CSV: 123
+
+ZIP: 12345
+
+Expiration Month: 12
+
+Expiration Year: 2028
